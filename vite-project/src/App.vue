@@ -7,4 +7,7 @@ import MovieProfile from './components/MovieProfile.vue'
 </template>
 
 <style scoped>
+body {
+  background-color: rgb(24,24,24);
+}
 </style>

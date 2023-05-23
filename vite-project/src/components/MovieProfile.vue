@@ -1,7 +1,4 @@
 <template>
-  <head>
-    <title>TMDB API</title>
-
     <div id="pagetop">
       <select v-model="list" id="list">
         <option value="809">Shrek 2</option>
@@ -17,12 +14,10 @@
       </select>
       <button id="getbutton" @click="getmovie()">Get</button>
     </div>
-  </head>
-  <body>
     <div class="container">
       <div id="containertop">
         <div id="left">
-          <img id="poster" src="" />
+          <img id="poster" :src="poster" />
         </div>
         <div id="right">
           <h1 id="title">{{ title }}</h1>
@@ -41,7 +36,6 @@
       </div>
       <iframe id="trailer" :src="trailer"></iframe>
     </div>
-  </body>
 </template>
 
 <script setup>
@@ -74,6 +68,7 @@ function getmovie() {
   });
 
   search.then((movieData) => {
+
     poster.value = "https://image.tmdb.org/t/p/w500" + movieData.data.poster_path;
 
     title.value = movieData.data.original_title;
@@ -100,7 +95,7 @@ function getmovie() {
   padding: 0;
   margin: 5px;
   box-sizing: border-box;
-  background-color: rgb(24, 23, 23);
+  background-color: rgb(24,23,23);
 }
 
 .container {
@@ -139,6 +134,11 @@ function getmovie() {
 
 .left {
   width: 40%;
+  left: 0px;
+}
+
+#poster {
+  left: 0px;
 }
 
 img {
